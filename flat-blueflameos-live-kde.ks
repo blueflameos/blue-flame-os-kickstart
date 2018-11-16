@@ -45,7 +45,7 @@ clearpart --all
 # Disk partitioning information
 part / --fstype="ext4" --size=5120
 part / --size=6500
-part / --size=7500
+part / --size=8000
 
 %post
 # FIXME: it'd be better to get this installed from a package
