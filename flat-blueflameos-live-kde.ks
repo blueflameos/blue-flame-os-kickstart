@@ -464,6 +464,7 @@ st-trans
 luniversalinstaller
 arfedora-control-center
 sgvrecord
+libwnck3
 
 k3b
 kde-l10n
