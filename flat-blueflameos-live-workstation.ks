@@ -478,6 +478,7 @@ syslinux
 -fedora-release-workstation
 -fedora-release-notes
 
+blue-flame-os-custom-workstation
 blue-flame-os-repos
 blue-flame-os-release
 blue-flame-os-logos
