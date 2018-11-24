@@ -393,7 +393,7 @@ if [ -f /usr/share/applications/liveinst.desktop ]; then
 
   cat >> /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override << FOE
 [org.gnome.shell]
-favorite-apps=[ 'org.gnome.Screenshot.desktop', 'firefox.desktop', 'google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'rhythmbox.desktop', 'shotwell.desktop', 'org.gnome.Software.desktop', 'org.gnome.gedit.desktop', 'org.github.yucefsourani.ArControlCenter.desktop', 'com.github.yucefsourani.LUniversalInstaller.desktop' ]
+favorite-apps=['firefox.desktop', 'google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'rhythmbox.desktop', 'org.gnome.Software.desktop', 'org.gnome.gedit.desktop', 'org.github.yucefsourani.ArControlCenter.desktop','org.gnome.Screenshot.desktop']
 FOE
 
   # Make the welcome screen show up
@@ -501,17 +501,15 @@ gnome-shell-extension-drive-menu
 
 gnome-shell-extension-clipboard-indicator
 gnome-shell-extension-CoverflowAltTab
-gnome-shell-extension-arabiclangrun
+#gnome-shell-extension-arabiclangrun
 gnome-shell-extension-sound-output-device-chooser
-gnome-shell-extension-clipboard-indicator
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-unlockDialogBackground
 gnome-shell-extension-netspeed
 gnome-shell-extension-blyr
-gnome-shell-extension-SimpleTray
+gnome-shell-extension-TopIcons
 gnome-shell-extension-gTile
-gnome-shell-extension-CoverflowAltTab
-gnome-shell-extension-mconnect
+#gnome-shell-extension-mconnect
 
 
 rpmfusion-free-release
