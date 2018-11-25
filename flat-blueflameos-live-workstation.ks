@@ -392,16 +392,19 @@ if [ -f /usr/share/applications/liveinst.desktop ]; then
   mv /usr/share/applications/liveinst.desktop /usr/share/applications/anaconda.desktop
 
   cat >> /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override << FOE
+#blueflameos
 [org.gnome.shell]
-favorite-apps=['firefox.desktop', 'google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'rhythmbox.desktop', 'org.gnome.Software.desktop', 'org.gnome.gedit.desktop', 'org.github.yucefsourani.ArControlCenter.desktop','org.gnome.Screenshot.desktop']
+favorite-apps=['anaconda.desktop','firefox.desktop', 'google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'rhythmbox.desktop', 'org.gnome.Software.desktop', 'org.gnome.gedit.desktop', 'org.github.yucefsourani.ArControlCenter.desktop','org.gnome.Screenshot.desktop']
 FOE
 
+  
   # Make the welcome screen show up
-  if [ -f /usr/share/anaconda/gnome/fedora-welcome.desktop ]; then
-    mkdir -p ~liveuser/.config/autostart
-    cp /usr/share/anaconda/gnome/fedora-welcome.desktop /usr/share/applications/
-    cp /usr/share/anaconda/gnome/fedora-welcome.desktop ~liveuser/.config/autostart/
-  fi
+  #if [ -f /usr/share/anaconda/gnome/fedora-welcome.desktop ]; then
+    #mkdir -p ~liveuser/.config/autostart
+    #cp /usr/share/anaconda/gnome/fedora-welcome.desktop /usr/share/applications/
+    #cp /usr/share/anaconda/gnome/fedora-welcome.desktop ~liveuser/.config/autostart/
+  #fi
+ #blueflameos
 
   # Copy Anaconda branding in place
   if [ -d /usr/share/lorax/product/usr/share/anaconda ]; then
