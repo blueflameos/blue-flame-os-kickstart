@@ -26,7 +26,7 @@ repo --name="luniversalinstaller"      --baseurl=https://copr-be.cloud.fedorapro
 repo --name="arfedora-control-center" --baseurl=https://copr-be.cloud.fedoraproject.org/results/youssefmsourani/arcontrolcenter/fedora-$releasever-$basearch/
 repo --name="sgvrecord" --baseurl=https://copr-be.cloud.fedoraproject.org/results/youssefmsourani/sgvrecord/fedora-$releasever-$basearch/
 repo --name="st-strans" --baseurl=https://copr-be.cloud.fedoraproject.org/results/youssefmsourani/st-trans/fedora-$releasever-$basearch/
-repo --cost=1 --name="local-repo"    --baseurl=http://192.168.1.71:8080/
+#repo --cost=1 --name="local-repo"    --baseurl=http://192.168.1.71:8080/
 #blueflameos
 
 # Use network installation
@@ -438,7 +438,7 @@ EOF
 #blueflameos
 /usr/bin/mkdir -p $INSTALL_ROOT/etc/skel/.mozilla/firefox/blueflameos.default
   cat >> $INSTALL_ROOT/etc/skel/.mozilla/firefox/blueflameos.default/prefs.js << FOE
-user_pref("browser.startup.homepage", "https://arfedora.blogspot.com");
+user_pref("browser.startup.homepage", "http://blueflameos.github.io");
 FOE
 
   cat >> $INSTALL_ROOT/etc/skel/.mozilla/firefox/profiles.ini << FOE
@@ -521,7 +521,7 @@ gnome-shell-extension-CoverflowAltTab
 gnome-shell-extension-sound-output-device-chooser
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-unlockDialogBackground
-gnome-shell-extension-netspeed
+gnome-shell-extension-simple-net-speed
 gnome-shell-extension-blyr
 gnome-shell-extension-TopIcons
 gnome-shell-extension-gTile
