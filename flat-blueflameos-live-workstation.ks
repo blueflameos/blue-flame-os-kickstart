@@ -418,6 +418,8 @@ glib-compile-schemas /usr/share/glib-2.0/schemas
 # set up auto-login
 cat > /etc/gdm/custom.conf << FOE
 [daemon]
+#DefaultSession=gnome-xorg.desktop
+#WaylandEnable=false
 AutomaticLoginEnable=True
 AutomaticLogin=liveuser
 FOE
@@ -448,6 +450,7 @@ IsRelative=1
 Path=blueflameos.default
 FOE
 #/usr/bin/firewall-cmd --add-service=kde-connect --permanent 2> /dev/null || :
+#sed -i -- 's/#WaylandEnable=false/WaylandEnable=false/g' /etc/gdm/custom.conf
 #blueflameos
 
 %end

@@ -1,3 +1,0 @@
-  cat >> yyy << FOE
-user_pref("browser.startup.homepage", "https://arfedora.blogspot.com");
-FOE
