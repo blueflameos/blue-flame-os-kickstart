@@ -391,8 +391,8 @@ if [ -f /usr/share/applications/liveinst.desktop ]; then
   # need to move it to anaconda.desktop to make shell happy
   mv /usr/share/applications/liveinst.desktop /usr/share/applications/anaconda.desktop
 
-  cat >> /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override << FOE
 #blueflameos
+  cat >> /usr/share/glib-2.0/schemas/org.gnome.shell.gschema.override << FOE
 [org.gnome.shell]
 favorite-apps=['anaconda.desktop','firefox.desktop', 'google-chrome.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'rhythmbox.desktop', 'org.gnome.Software.desktop', 'org.gnome.gedit.desktop', 'org.github.yucefsourani.ArControlCenter.desktop','org.gnome.Screenshot.desktop']
 FOE
@@ -435,10 +435,19 @@ EOF
 
 #blueflameos
 /usr/bin/mkdir -p $INSTALL_ROOT/etc/skel/.mozilla/firefox/blueflameos.default
-/usr/bin/cp mozilla/firefox/profiles.ini $INSTALL_ROOT/etc/skel/.mozilla/firefox/
-/usr/bin/cp mozilla/firefox/blueflameos.default/prefs.js $INSTALL_ROOT/etc/skel/.mozilla/firefox/blueflameos.default
+  cat >> $INSTALL_ROOT/etc/skel/.mozilla/firefox/blueflameos.default/prefs.js << FOE
+user_pref("browser.startup.homepage", "https://arfedora.blogspot.com");
+FOE
 
-/usr/bin/firewall-cmd --add-service=kde-connect --permanent 2> /dev/null || :
+  cat >> $INSTALL_ROOT/etc/skel/.mozilla/firefox/profiles.ini << FOE
+[General]
+StartWithLastProfile=0
+[Profile0]
+Name=default
+IsRelative=1
+Path=blueflameos.default
+FOE
+#/usr/bin/firewall-cmd --add-service=kde-connect --permanent 2> /dev/null || :
 #blueflameos
 
 %end
@@ -525,7 +534,7 @@ geany
 geany-themes
 google-chrome-stable
 fedora-workstation-repositories
-kde-connect
+#kde-connect
 vlc
 xine-lib
 amrnb
