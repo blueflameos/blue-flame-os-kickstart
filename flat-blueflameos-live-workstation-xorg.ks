@@ -13,8 +13,11 @@ shutdown
 timezone US/Eastern
 # Network information
 network  --bootproto=dhcp --device=link --activate
-repo --name="fedora" --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch
-repo --name="updates" --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f$releasever&arch=$basearch
+# System authorization information
+auth --useshadow --passalgo=sha512
+# Firewall configuration
+firewall --enabled --service=mdns
+repo --name="rawhide" --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=rawhide&arch=$basearch
 
 #blueflameos
 repo --name="adobe"   --baseurl=http://linuxdownload.adobe.com/linux/x86_64/
@@ -26,15 +29,11 @@ repo --name="luniversalinstaller"      --baseurl=https://copr-be.cloud.fedorapro
 repo --name="arfedora-control-center" --baseurl=https://copr-be.cloud.fedoraproject.org/results/youssefmsourani/arcontrolcenter/fedora-$releasever-$basearch/
 repo --name="sgvrecord" --baseurl=https://copr-be.cloud.fedoraproject.org/results/youssefmsourani/sgvrecord/fedora-$releasever-$basearch/
 repo --name="st-strans" --baseurl=https://copr-be.cloud.fedoraproject.org/results/youssefmsourani/st-trans/fedora-$releasever-$basearch/
-#repo --cost=1 --name="local-repo"    --baseurl=http://192.168.1.71:8080/
+repo --cost=1 --name="local-repo"    --baseurl=http://192.168.1.71:8080/
 #blueflameos
 
 # Use network installation
-url --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch"
-# System authorization information
-auth --useshadow --passalgo=sha512
-# Firewall configuration
-firewall --enabled --service=mdns
+url --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=rawhide&arch=$basearch"
 # SELinux configuration
 selinux --enforcing
 
@@ -453,6 +452,7 @@ FOE
 sed -i -- 's/#WaylandEnable=false/WaylandEnable=false/g' /etc/gdm/custom.conf
 #blueflameos
 
+
 %end
 
 %packages
@@ -474,6 +474,7 @@ anaconda
 anaconda-install-env-deps
 dracut-live
 glibc-all-langpacks
+initscripts
 kernel
 kernel-modules
 kernel-modules-extra
@@ -586,5 +587,4 @@ transmission
 chrome-gnome-shell
 nano
 #blueflameos
-
 %end

@@ -70,14 +70,16 @@ rkward
 qtoctave
 
 # julia
-# Comment out till https://koji.fedoraproject.org/koji/buildinfo?buildID=1135023 is fixed
+# Comment out till build failure is sorted
 # julia
 # julia-doc
 
 # IDEs for the IDE folks
 @eclipse
-# Workaround for: https://pagure.io/releng/issue/7814
+
+# Workaround for https://pagure.io/releng/issue/7814
 -eclipse-linuxtools-vagrant
+
 spyder
 
 #writing & publishing

@@ -13,8 +13,11 @@ shutdown
 timezone US/Eastern
 # Network information
 network  --bootproto=dhcp --device=link --activate
-repo --name="fedora" --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch
-repo --name="updates" --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f$releasever&arch=$basearch
+# System authorization information
+auth --useshadow --passalgo=sha512
+# Firewall configuration
+firewall --enabled --service=mdns
+repo --name="rawhide" --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=rawhide&arch=$basearch
 
 #blueflameos
 repo --name="adobe"   --baseurl=http://linuxdownload.adobe.com/linux/x86_64/
@@ -30,11 +33,7 @@ repo --name="st-strans" --baseurl=https://copr-be.cloud.fedoraproject.org/result
 #blueflameos
 
 # Use network installation
-url --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$basearch"
-# System authorization information
-auth --useshadow --passalgo=sha512
-# Firewall configuration
-firewall --enabled --service=mdns
+url --mirrorlist="https://mirrors.fedoraproject.org/mirrorlist?repo=rawhide&arch=$basearch"
 # SELinux configuration
 selinux --enforcing
 
@@ -418,7 +417,7 @@ glib-compile-schemas /usr/share/glib-2.0/schemas
 # set up auto-login
 cat > /etc/gdm/custom.conf << FOE
 [daemon]
-#DefaultSession=gnome-xorg.desktop
+DefaultSession=gnome-xorg.desktop
 #WaylandEnable=false
 AutomaticLoginEnable=True
 AutomaticLogin=liveuser
@@ -453,6 +452,7 @@ FOE
 #sed -i -- 's/#WaylandEnable=false/WaylandEnable=false/g' /etc/gdm/custom.conf
 #blueflameos
 
+
 %end
 
 %packages
@@ -474,6 +474,7 @@ anaconda
 anaconda-install-env-deps
 dracut-live
 glibc-all-langpacks
+initscripts
 kernel
 kernel-modules
 kernel-modules-extra
@@ -484,7 +485,6 @@ syslinux
 -@standard
 -gfs2-utils
 -reiserfs-utils
-
 #blueflameos
 -fedora-release
 -fedora-logos
